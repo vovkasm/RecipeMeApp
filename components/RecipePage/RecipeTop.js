@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import styled from "styled-components";
 
-const RecipeTop = ({image}) => {
+const RecipeTop = ({ image }) => {
   return (
     <TopSection>
       <MainImg source={{ uri: image }} />
@@ -11,7 +11,7 @@ const RecipeTop = ({image}) => {
 };
 
 const TopSection = styled.View`
-  height: 45%;
+  height: 60%;
 `;
 const MainImg = styled.Image`
   width: 100%;
