@@ -2,6 +2,9 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import styled from "styled-components";
 import COLORS from "../colors";
+
+import RecipeTop from "../components/RecipePage/RecipeTop";
+
 const RecipeScreen = ({ route }) => {
   const {
     title,
@@ -15,9 +18,7 @@ const RecipeScreen = ({ route }) => {
   } = route.params;
   return (
     <Wrapper>
-      <TopSection>
-        <MainImg source={{ uri: image }} />
-      </TopSection>
+      <RecipeTop image={image} />
       <ContentSection>
         <TitleBlock>
           <HeaderTitle>Egg Toast with Grilled Chesee</HeaderTitle>
@@ -54,9 +55,6 @@ const Wrapper = styled.View`
   display: flex;
   width: 100%;
   height: 100%;
-`;
-const TopSection = styled.View`
-  height: 45%;
 `;
 
 const TitleBlock = styled.View`
@@ -106,10 +104,7 @@ const IngredientsCount = styled.View`
   background-color: ${COLORS.exLightGreen};
   border-radius: 10px;
 `;
-const MainImg = styled.Image`
-  width: 100%;
-  height: 100%;
-`;
+
 const ContentSection = styled.View`
   align-items: center;
   background-color: ${COLORS.white};

@@ -38,6 +38,7 @@ const SearchScreen = ({ route }) => {
         cookTime={item.cookTime}
         category={item.category}
         image={item.image}
+        ingredients={item.ingredients}
       />
     );
   };
