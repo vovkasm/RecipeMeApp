@@ -1,14 +1,15 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import styled from "styled-components";
-import DATA from "../data/recipes";
-import COLORS from "./../colors";
 
 import ListItem from "../components/ListItem";
 import EmptyCategory from "../components/EmptyCategory";
 import SearchField from "../components/SearchField";
 import CategoriesList from "../components/CategoriesList";
-import { useNavigation } from "@react-navigation/native";
+
+import DATA from "../data/recipes";
+import COLORS from "./../colors";
 
 const CategoryScreen = ({ route }) => {
   const { catName } = route.params;
@@ -43,7 +44,7 @@ const CategoryScreen = ({ route }) => {
         </>
       )}
       {filteredData.length > 0 && (
-        <View>
+        <>
           <CategoriesList />
           <SearchField />
           <ItemsCountBlock>
@@ -55,7 +56,7 @@ const CategoryScreen = ({ route }) => {
             data={filteredData}
             renderItem={renderItem}
           />
-        </View>
+        </>
       )}
     </Wrapper>
   );
@@ -74,7 +75,7 @@ const CountNum = styled.Text`
   font-size: 18px;
   border-radius: 10px;
   background-color: ${COLORS.green};
-  color: ${COLORS.white};;
+  color: ${COLORS.white};
   font-weight: 700;
   padding: 3px;
 `;

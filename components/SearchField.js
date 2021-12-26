@@ -1,12 +1,13 @@
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import React, { useState } from "react";
-import { View, TextInput, Button, Image, Pressable } from "react-native";
+import { Pressable } from "react-native";
 import styled from "styled-components";
+
 import COLORS from "../colors";
 
 const SearchField = () => {
   const navigation = useNavigation();
-  const [searchPhrase, setSearchPhrase] = useState("");
+  const [searchPhrase, setSearchPhrase] = React.useState("");
 
   const searchHeandler = (text) => {
     setSearchPhrase(text);

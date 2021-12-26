@@ -1,13 +1,14 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { Text, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import DATA from "../data/recipes";
-import styled from "styled-components";
 
 import SearchField from "../components/SearchField";
 import CategoriesList from "../components/CategoriesList";
 import ListItem from "../components/ListItem";
 import EmptySearch from "../components/EmptySearch";
+
+import DATA from "../data/recipes";
+import styled from "styled-components";
 
 const SearchScreen = ({ route }) => {
   const navigation = useNavigation();

@@ -1,26 +1,22 @@
-import React, { useEffect } from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import React from "react";
+import SettingItem from "../components/SettingItem";
+import { useNavigation } from "@react-navigation/native";
+
 import styled from "styled-components";
 import CONFIG from "../data/config.js";
 import COLORS from "../colors.js";
-import SettingItem from "../components/SettingItem";
-import { useNavigation } from "@react-navigation/native";
 
 const ProfileScreen = ({ route }) => {
   const { id, login, userEmail, photo, allergy, signupDate } = route.params;
 
   const navigation = useNavigation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     navigation.setOptions({
       title: "Настройки профиля",
     });
   }, []);
-  const preview = {
-    uri: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-  };
-  const uri =
-    "https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641";
+
   return (
     <Wrapper>
       <HeadSection>

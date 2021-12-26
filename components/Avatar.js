@@ -1,6 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+import { Pressable } from "react-native";
+
 import styled from "styled-components";
 import COLORS from "../colors";
 

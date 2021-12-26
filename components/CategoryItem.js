@@ -1,6 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Text } from "react-native";
 import styled from "styled-components";
 
 const CategoryItem = ({ id, title, bgColor, active, icon }) => {

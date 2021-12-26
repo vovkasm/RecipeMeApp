@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, Image, TouchableHighlight } from "react-native";
 import styled from "styled-components";
+
 import COLORS from "./../colors";
 
 const SettingItem = ({ id, icon, title, active }) => {

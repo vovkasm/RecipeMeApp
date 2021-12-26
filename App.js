@@ -1,18 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, Text, View, Image } from "react-native";
+import { Image } from "react-native";
 import { NavigationContainer, useRoute } from "@react-navigation/native";
-
-import styled from "styled-components";
-import SETTINGS from "./data/settings";
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CategoryScreen from "./screens/CategoryScreen";
+
 import HomeScreen from "./screens/HomeScreen";
+import CategoryScreen from "./screens/CategoryScreen";
 import RecipeScreen from "./screens/RecipeScreen";
 import SearchScreen from "./screens/SearchScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-import COLORS from "./colors";
 import Avatar from "./components/Avatar";
+
+import COLORS from "./colors";
+import SETTINGS from "./data/settings";
 
 const Stack = createNativeStackNavigator();
 

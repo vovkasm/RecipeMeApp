@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
-import styled from "styled-components";
+import { FlatList } from "react-native";
 import CategoryItem from "./CategoryItem";
+import styled from "styled-components";
+
 import CATEGORIES from "../data/categories";
 import COLORS from "../colors";
 

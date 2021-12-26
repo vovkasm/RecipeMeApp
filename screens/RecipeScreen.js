@@ -1,10 +1,8 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
-import styled from "styled-components";
-import COLORS from "../colors";
-
 import RecipeTop from "../components/RecipePage/RecipeTop";
 import RecipeContent from "../components/RecipePage/RecipeContent";
+
+import styled from "styled-components";
 
 const RecipeScreen = ({ route }) => {
   const { title, cookTime, image, category, catName, kcal, ingredients } =

@@ -1,6 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 import styled from "styled-components";
+
+import IngredientSection from "./IngredietSection";
 
 import COLORS from "./../../colors";
 
@@ -19,11 +21,13 @@ const RecipeContent = ({
         <LikeBtn source={require("../../data/like_red.png")} />
       </TitleBlock>
       <InfosBlock>
-        {ingredients && (
+        {ingredients ? (
           <IngredientsCount>
             <IconInf source={require("../../data/ingr_count.png")} />
             <Text>{ingredients.length} продукт.</Text>
           </IngredientsCount>
+        ) : (
+          <></>
         )}
         <Kcals>
           <IconInf source={require("../../data/kcals.png")} />
@@ -34,12 +38,7 @@ const RecipeContent = ({
           <Text>{cookTime} минут</Text>
         </TimeCook>
       </InfosBlock>
-      <IngredientBlock>
-        <IngTitle>Ингридиенты</IngTitle>
-        {ingredients.map((item, i) => {
-          return <IngItem>{item}</IngItem>;
-        })}
-      </IngredientBlock>
+      <IngredientSection ingredients={ingredients} />
     </ContentSection>
   );
 };
@@ -74,6 +73,12 @@ const HeaderTitle = styled.Text`
   color: ${COLORS.text};
   flex-basis: 60%;
 `;
+const IngredientsCount = styled.View`
+  flex-basis: 33%;
+  padding: 5px;
+  background-color: ${COLORS.exLightGreen};
+  border-radius: 10px;
+`;
 
 const TimeCook = styled.View`
   padding: 5px;
@@ -81,12 +86,6 @@ const TimeCook = styled.View`
   border-radius: 10px;
 `;
 const Kcals = styled.View`
-  padding: 5px;
-  background-color: ${COLORS.exLightGreen};
-  border-radius: 10px;
-`;
-const IngredientsCount = styled.View`
-  flex-basis: 33%;
   padding: 5px;
   background-color: ${COLORS.exLightGreen};
   border-radius: 10px;
@@ -100,20 +99,5 @@ const ContentSection = styled.View`
   border-top-right-radius: 35px;
   margin-top: -50px;
 `;
-const IngredientBlock = styled.View`
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  height: 200px;
-`;
-const IngTitle = styled.Text`
-  font-size: 20px;
-  margin: 10px 42px;
-  color: ${COLORS.text};
-`;
-const IngItem = styled.Text`
-  font-size: 18px;
-  margin: 10px 42px;
-  color: ${COLORS.text};
-`;
+
 export default RecipeContent;

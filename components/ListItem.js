@@ -1,9 +1,8 @@
 import React from "react";
-import { View, Text, Pressable, Image } from "react-native";
-
 import { useNavigation } from "@react-navigation/native";
-
+import { Text, Pressable } from "react-native";
 import styled from "styled-components";
+
 import COLORS from "../colors";
 
 function ListItem({

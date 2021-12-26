@@ -11,12 +11,7 @@ const DATA = [
     cookTime: 35,
     postDate: "12.02.2021",
     kcal: 200,
-    ingredients: [
-      "🍏 яблоко - 2",
-      "🍚 salt - 5 гр.",
-      "🥚 eggs - 3",
-      "🍯 flour - 190 гр.",
-    ],
+    ingredients: ["butter", "salt", "🍔eggs", "flour"],
   },
   {
     id: "a2",

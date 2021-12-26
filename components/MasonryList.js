@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
-import styled from "styled-components";
+import { FlatList } from "react-native";
 import ListItem from "./ListItem";
-import DATA from "../data/recipes";
+import styled from "styled-components";
 
+import DATA from "../data/recipes";
 
 const MasonryList = () => {
   const renderItem = ({ item }) => (
