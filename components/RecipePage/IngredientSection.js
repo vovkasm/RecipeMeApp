@@ -15,10 +15,8 @@ const IngredientSection = ({ ingredients }) => {
 };
 
 const IngredientBlock = styled.View`
-  display: flex;
   justify-content: flex-start;
   width: 100%;
-  height: 200px;
 `;
 const IngTitle = styled.Text`
   font-size: 20px;
@@ -28,7 +26,7 @@ const IngTitle = styled.Text`
 
 const IngItem = styled.Text`
   font-size: 18px;
-  margin: 10px 42px;
+  margin: 6px 42px;
   color: ${COLORS.text};
 `;
 

@@ -3,7 +3,15 @@ import { useNavigation } from "@react-navigation/native";
 import { Text } from "react-native";
 import styled from "styled-components";
 
-const CategoryItem = ({ id, title, bgColor, active, icon }) => {
+const CategoryItem = ({
+  id,
+  title,
+  description,
+  bgColor,
+  active,
+  icon,
+  ingredients,
+}) => {
   const navigation = useNavigation();
 
   return (
@@ -14,16 +22,16 @@ const CategoryItem = ({ id, title, bgColor, active, icon }) => {
           navigation.navigate("CategoryScreen", { catName: title });
         }}
       >
-        <Wrapper style={{ backgroundColor: bgColor }}>
+        <WrapperCatItem style={{ backgroundColor: bgColor }}>
           <IconCat source={icon} />
           <Text style={{ color: "white" }}>{title}</Text>
-        </Wrapper>
+        </WrapperCatItem>
       </TouchableHighlightBlock>
     )
   );
 };
 
-const Wrapper = styled.View`
+const WrapperCatItem = styled.View`
   width: auto;
   height: auto;
   padding: 10px 20px;

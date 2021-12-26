@@ -26,16 +26,18 @@ const CategoryScreen = ({ route }) => {
     return (
       <ListItem
         title={item.title}
+        description={item.description}
         id={item.id}
         cookTime={item.cookTime}
         image={item.image}
         catName={catName}
+        ingredients={item.ingredients}
       />
     );
   };
 
   return (
-    <Wrapper>
+    <WrapperCatScr>
       {filteredData.length == 0 && (
         <>
           <CategoriesList />
@@ -58,11 +60,11 @@ const CategoryScreen = ({ route }) => {
           />
         </>
       )}
-    </Wrapper>
+    </WrapperCatScr>
   );
 };
 
-const Wrapper = styled.View`
+const WrapperCatScr = styled.View`
   height: 100%;
   padding-bottom: 10px;
 `;

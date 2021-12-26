@@ -1,31 +1,37 @@
 import React from "react";
 import RecipeTop from "../components/RecipePage/RecipeTop";
 import RecipeContent from "../components/RecipePage/RecipeContent";
-
 import styled from "styled-components";
+import { ScrollView } from "react-native";
 
 const RecipeScreen = ({ route }) => {
-  const { title, cookTime, image, category, catName, kcal, ingredients } =
-    route.params;
+  const {
+    title,
+    description,
+    cookTime,
+    image,
+    category,
+    catName,
+    kcal,
+    ingredients,
+  } = route.params;
   return (
-    <Wrapper>
-      <RecipeTop image={image} />
-      <RecipeContent
-        title={title}
-        cookTime={cookTime}
-        category={category}
-        catName={catName}
-        kcal={kcal}
-        ingredients={ingredients}
-      />
-    </Wrapper>
+    <ScrollView>
+      <WrapperResScr>
+        <RecipeTop image={image} />
+        <RecipeContent
+          description={description}
+          cookTime={cookTime}
+          category={category}
+          catName={catName}
+          kcal={kcal}
+          ingredients={ingredients}
+        />
+      </WrapperResScr>
+    </ScrollView>
   );
 };
 
-const Wrapper = styled.View`
-  display: flex;
-  width: 100%;
-  height: 100%;
-`;
+const WrapperResScr = styled.View``;
 
 export default RecipeScreen;

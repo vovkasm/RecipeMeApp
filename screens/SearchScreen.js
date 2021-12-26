@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import styled from "styled-components";
 
 import SearchField from "../components/SearchField";
 import CategoriesList from "../components/CategoriesList";
@@ -8,7 +9,7 @@ import ListItem from "../components/ListItem";
 import EmptySearch from "../components/EmptySearch";
 
 import DATA from "../data/recipes";
-import styled from "styled-components";
+import COLORS from "../colors";
 
 const SearchScreen = ({ route }) => {
   const navigation = useNavigation();
@@ -35,6 +36,8 @@ const SearchScreen = ({ route }) => {
     return (
       <ListItem
         title={item.title}
+        description={item.description}
+        ingredients={item.ingredients}
         id={item.id}
         cookTime={item.cookTime}
         category={item.category}
@@ -44,7 +47,7 @@ const SearchScreen = ({ route }) => {
     );
   };
   return (
-    <Wrapper>
+    <WrapperSearchScr>
       {searchData.length === 0 && (
         <>
           <SearchField />
@@ -56,18 +59,33 @@ const SearchScreen = ({ route }) => {
         <>
           <CategoriesList />
           <SearchField />
-          <Text>Всего найдено {searchedCount} рецептов: </Text>
+          <ResultText>
+            Всего найдено <ResultNum>{searchedCount}</ResultNum> рецептов:
+          </ResultText>
 
           <FlatList numColumns='2' data={searchData} renderItem={renderItem} />
         </>
       )}
-    </Wrapper>
+    </WrapperSearchScr>
   );
 };
 
-const Wrapper = styled.View`
+const WrapperSearchScr = styled.View`
   height: 100%;
   padding-bottom: 10px;
+`;
+const ResultText = styled.Text`
+  margin: 5px 10px;
+  font-size: 16px;
+  color: ${COLORS.green};
+`;
+const ResultNum = styled.Text`
+  font-size: 18px;
+  border-radius: 6px;
+  background-color: ${COLORS.green};
+  color: ${COLORS.white};
+  font-weight: 700;
+  padding: 3px;
 `;
 
 export default SearchScreen;

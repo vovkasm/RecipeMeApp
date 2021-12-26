@@ -1,19 +1,19 @@
 const CONFIG = [
   {
     id: "s1",
-    icon: require("../data/like_red.png"),
+    icon: require("../data/img/like_red.png"),
     title: "Избранное",
     active: true,
   },
   {
     id: "s2",
-    icon: require("../data/clock2.png"),
+    icon: require("../data/img/clock2.png"),
     title: "История",
     active: true,
   },
   {
     id: "s3",
-    icon: require("../data/lang.png"),
+    icon: require("../data/img/lang.png"),
     title: "Язык интерфейса",
     active: true,
   },

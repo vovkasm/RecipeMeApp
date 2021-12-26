@@ -18,14 +18,14 @@ const ProfileScreen = ({ route }) => {
   }, []);
 
   return (
-    <Wrapper>
+    <WrapperUser>
       <HeadSection>
         <Photo source={photo} />
         <UserName>{login}</UserName>
         <UserEmail>{userEmail}</UserEmail>
         <EditBtn>Редактировать</EditBtn>
       </HeadSection>
-      <ContentSection>
+      <ContentSectionUser>
         <ContHead>
           <ContTitle>Настройки</ContTitle>
         </ContHead>
@@ -39,12 +39,12 @@ const ProfileScreen = ({ route }) => {
             />
           );
         })}
-      </ContentSection>
-    </Wrapper>
+      </ContentSectionUser>
+    </WrapperUser>
   );
 };
 
-const Wrapper = styled.View`
+const WrapperUser = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -84,7 +84,7 @@ const EditBtn = styled.Text`
   margin-top: 20px;
 `;
 
-const ContentSection = styled.View`
+const ContentSectionUser = styled.View`
   align-items: center;
   flex-direction: column;
   width: 100%;

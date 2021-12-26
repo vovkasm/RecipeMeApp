@@ -6,7 +6,7 @@ const DATA = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRq-2h3mMpVqmS7Qcjctdkpiza6D573nocrw&usqp=CAU",
     description:
-      "Consectetur et sint esse Lorem aliqua aute velit labore deserunt labore.",
+      "Consectetur et sint esse Lorem aliqua aute velit labore deserunt labore. Consectetur et sint esse Lorem aliqua aute velit labore deserunt labore. ",
     likes: 227,
     cookTime: 35,
     postDate: "12.02.2021",

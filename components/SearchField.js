@@ -14,7 +14,7 @@ const SearchField = () => {
   };
 
   return (
-    <Wrapper>
+    <WrapperSearchFld>
       <SearchInput
         underlineColorAndroid='transparent'
         placeholder='Что приготовим?'
@@ -28,13 +28,13 @@ const SearchField = () => {
           });
         }}
       >
-        <IconBtn source={require("../data/searchbtn.png")} />
+        <IconBtn source={require("../data/img/searchbtn.png")} />
       </Pressable>
-    </Wrapper>
+    </WrapperSearchFld>
   );
 };
 
-const Wrapper = styled.View`
+const WrapperSearchFld = styled.View`
   align-items: center;
   flex-direction: row;
   justify-content: center;

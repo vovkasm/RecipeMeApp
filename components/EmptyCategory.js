@@ -5,7 +5,7 @@ import COLORS from "../colors";
 const EmptyCategory = () => {
   return (
     <Wrapper>
-      <EmptyBox source={require("../data/cooking.png")} />
+      <EmptyBox source={require("../data/img/cooking.png")} />
       <EmptyText>
         В этой категории пока нет рецептов.. {"\n"} Давайте попробуем поискать
         что-то ещё:

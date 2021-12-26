@@ -5,7 +5,7 @@ import COLORS from "../colors";
 const EmptySearch = () => {
   return (
     <Wrapper>
-      <EmptyBox source={require("../data/notfound.png")} />
+      <EmptyBox source={require("../data/img/notfound.png")} />
       <EmptyText>Рецептов с выбранными вами параметрами не найдено.</EmptyText>
     </Wrapper>
   );

@@ -7,6 +7,7 @@ import COLORS from "../colors";
 
 function ListItem({
   title,
+  description,
   cookTime,
   image,
   category,
@@ -20,21 +21,21 @@ function ListItem({
   return (
     <Wrapper>
       <CookTime>
-        <TimeIco source={require("../data/clock3.png")} />
+        <TimeIco source={require("../data/img/clock3.png")} />
         <Text style={{ color: "#42c190" }}>{cookTime} min</Text>
       </CookTime>
       <CategoryLabel>
         <Text style={{ color: "white" }}>{category || catName}</Text>
       </CategoryLabel>
       <LikeLabel>
-        <LikeIco source={require("../data/like.png")} />
+        <LikeIco source={require("../data/img/like.png")} />
         <Text style={{ color: "white" }}>{likes}</Text>
       </LikeLabel>
       <Pressable
-        onLongPress={() => alert("Add to Favorites 🥰")}
         onPress={function () {
           navigation.navigate("RecipeScreen", {
             title,
+            description,
             cookTime,
             image,
             category,

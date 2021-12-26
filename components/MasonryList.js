@@ -9,6 +9,7 @@ const MasonryList = () => {
   const renderItem = ({ item }) => (
     <ListItem
       title={item.title}
+      description={item.description}
       id={item.id}
       cookTime={item.cookTime}
       image={item.image}
@@ -31,7 +32,5 @@ const MasonryList = () => {
     />
   );
 };
-
-const Wrapper = styled.View``;
 
 export default MasonryList;

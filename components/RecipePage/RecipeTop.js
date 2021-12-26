@@ -10,7 +10,8 @@ const RecipeTop = ({ image }) => {
 };
 
 const TopSection = styled.View`
-  height: 60%;
+  height: 400px;
+  width: 100%;
 `;
 const MainImg = styled.Image`
   width: 100%;

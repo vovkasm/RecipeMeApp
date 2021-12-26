@@ -14,12 +14,13 @@ const CategoriesList = () => {
       bgColor={item.bgColor}
       active={item.active}
       icon={item.icon}
-      catName={item.ca}
+      catName={item.catName}
+      ingredients={item.ingredients}
     />
   );
 
   return (
-    <Wrapper>
+    <WrapperCat>
       <FlatList
         data={CATEGORIES}
         renderItem={renderCategory}
@@ -27,11 +28,11 @@ const CategoriesList = () => {
         horizontal={true}
         showsHorizontalScrollIndicator={false}
       />
-    </Wrapper>
+    </WrapperCat>
   );
 };
 
-const Wrapper = styled.View`
+const WrapperCat = styled.View`
   flex-direction: row;
   justify-content: center;
   height: 100px;

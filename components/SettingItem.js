@@ -10,12 +10,13 @@ const SettingItem = ({ id, icon, title, active }) => {
         <SettingItemBlock>
           <Ico source={icon} />
           <ItemTitle>{title}</ItemTitle>
-          <Arrow source={require("../data/arrow.png")} />
+          <Arrow source={require("../data/img/arrow.png")} />
         </SettingItemBlock>
       </TouchableHighlightBlock>
     )
   );
 };
+
 const SettingItemBlock = styled.View`
   flex-direction: row;
   width: 90%;

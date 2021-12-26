@@ -6,13 +6,13 @@ import MasonryList from "./MasonryList";
 
 const ContentBlock = () => {
   return (
-    <Wrapper>
+    <WrapperContBlock>
       <MasonryList />
-    </Wrapper>
+    </WrapperContBlock>
   );
 };
 
-const Wrapper = styled.View`
+const WrapperContBlock = styled.View`
   background-color: ${COLORS.white};
 `;
 

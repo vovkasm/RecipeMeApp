@@ -24,7 +24,7 @@ export default function App() {
         <Stack.Screen
           options={{
             headerTitle: (props) => (
-              <Image source={require("./data/logo.png")} />
+              <Image source={require("./data/img/logo.png")} />
             ),
             headerRight: () => <Avatar data={SETTINGS} />,
             headerShadowVisible: false,

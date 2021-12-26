@@ -2,12 +2,13 @@ import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components";
 
-import IngredientSection from "./IngredietSection";
+import IngredientSection from "./IngredientSection";
+import DescriptionSection from "./DescriptionSection";
 
 import COLORS from "./../../colors";
 
 const RecipeContent = ({
-  title,
+  description,
   cookTime,
   category,
   catName,
@@ -18,31 +19,39 @@ const RecipeContent = ({
     <ContentSection>
       <TitleBlock>
         <HeaderTitle>Egg Toast with Grilled Chesee</HeaderTitle>
-        <LikeBtn source={require("../../data/like_red.png")} />
+        <LikeBtn source={require("../../data/img/like_red.png")} />
       </TitleBlock>
       <InfosBlock>
         {ingredients ? (
           <IngredientsCount>
-            <IconInf source={require("../../data/ingr_count.png")} />
+            <IconInf source={require("../../data/img/ingr_count.png")} />
             <Text>{ingredients.length} продукт.</Text>
           </IngredientsCount>
         ) : (
           <></>
         )}
         <Kcals>
-          <IconInf source={require("../../data/kcals.png")} />
+          <IconInf source={require("../../data/img/kcals.png")} />
           <Text>{kcal} Ккал</Text>
         </Kcals>
         <TimeCook>
-          <IconInf source={require("../../data/clock_green.png")} />
+          <IconInf source={require("../../data/img/clock_green.png")} />
           <Text>{cookTime} минут</Text>
         </TimeCook>
       </InfosBlock>
       <IngredientSection ingredients={ingredients} />
+      <DescriptionSection description={description} />
     </ContentSection>
   );
 };
-
+const ContentSection = styled.View`
+  background-color: ${COLORS.white};
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  height: 100%;
+  width: 100%;
+  margin-top: -50px;
+`;
 const TitleBlock = styled.View`
   flex-direction: row;
   height: 100px;
@@ -52,8 +61,6 @@ const TitleBlock = styled.View`
 `;
 const InfosBlock = styled.View`
   flex-direction: row;
-  height: 100px;
-  width: 90%;
   align-items: center;
   justify-content: space-evenly;
 `;
@@ -75,29 +82,20 @@ const HeaderTitle = styled.Text`
 `;
 const IngredientsCount = styled.View`
   flex-basis: 33%;
-  padding: 5px;
+  padding: 10px;
   background-color: ${COLORS.exLightGreen};
   border-radius: 10px;
 `;
 
 const TimeCook = styled.View`
-  padding: 5px;
+  padding: 10px;
   background-color: ${COLORS.exLightGreen};
   border-radius: 10px;
 `;
 const Kcals = styled.View`
-  padding: 5px;
+  padding: 10px;
   background-color: ${COLORS.exLightGreen};
   border-radius: 10px;
-`;
-
-const ContentSection = styled.View`
-  align-items: center;
-  background-color: ${COLORS.white};
-  height: auto;
-  border-top-left-radius: 35px;
-  border-top-right-radius: 35px;
-  margin-top: -50px;
 `;
 
 export default RecipeContent;
