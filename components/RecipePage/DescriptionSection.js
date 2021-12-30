@@ -5,11 +5,12 @@ import styled from "styled-components";
 import COLORS from "../../colors";
 
 const DescriptionSection = ({ description }) => {
-  console.log(description);
   return (
     <DescBlock>
       <DescTitle>Приготовление</DescTitle>
-      <DescText>{description}</DescText>
+      {description.map((desc) => {
+        return <DescText key={desc.id}>🟢 {desc.text}</DescText>;
+      })}
     </DescBlock>
   );
 };
@@ -23,10 +24,13 @@ const DescTitle = styled.Text`
   font-size: 21px;
   font-weight: 600;
   color: ${COLORS.text};
+  border-color: ${COLORS.green};
+  border-bottom-width: 1px;
 `;
 const DescText = styled.Text`
-  margin: 20px 40px;
-  font-size: 20px;
+  margin: 5px 40px;
+  font-size: 18px;
   color: ${COLORS.text};
 `;
+
 export default DescriptionSection;

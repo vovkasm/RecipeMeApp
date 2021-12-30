@@ -19,8 +19,6 @@ const HomeScreen = () => {
   );
 };
 
-
-
 const Header = styled.View`
   height: 100px;
   background-color: ${COLORS.white};

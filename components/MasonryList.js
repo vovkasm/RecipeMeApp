@@ -1,10 +1,9 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, Button } from "react-native";
 import ListItem from "./ListItem";
 import styled from "styled-components";
 
 import DATA from "../data/recipes";
-
 const MasonryList = () => {
   const renderItem = ({ item }) => (
     <ListItem
@@ -21,16 +20,20 @@ const MasonryList = () => {
   );
 
   return (
-    <FlatList
-      removeClippedSubviews={false}
-      maxToRenderPerBatch='8'
-      windowSize='21'
-      numColumns='2'
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={(item, index) => item.id}
-    />
+    <WrapperList>
+      <FlatList
+        maxToRenderPerBatch='8'
+        windowSize='21'
+        numColumns='2'
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
+    </WrapperList>
   );
 };
 
+const WrapperList = styled.View`
+  padding-bottom: 190px;
+`;
 export default MasonryList;

@@ -40,8 +40,8 @@ const WrapperCatItem = styled.View`
   text-align: center;
 `;
 const IconCat = styled.Image`
-  height: 48px;
-  width: 48px;
+  height: 38px;
+  width: 38px;
   z-index: 9999;
 `;
 const TouchableHighlightBlock = styled.TouchableHighlight`

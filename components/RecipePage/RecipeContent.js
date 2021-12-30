@@ -4,21 +4,22 @@ import styled from "styled-components";
 
 import IngredientSection from "./IngredientSection";
 import DescriptionSection from "./DescriptionSection";
-
+import SimilarRecipes from "../SimilarRecipes";
 import COLORS from "./../../colors";
-
 const RecipeContent = ({
+  title,
   description,
   cookTime,
   category,
   catName,
   kcal,
+  likes,
   ingredients,
 }) => {
   return (
     <ContentSection>
       <TitleBlock>
-        <HeaderTitle>Egg Toast with Grilled Chesee</HeaderTitle>
+        <HeaderTitle>Egg Toast with Grilled Cheese</HeaderTitle>
         <LikeBtn source={require("../../data/img/like_red.png")} />
       </TitleBlock>
       <InfosBlock>
@@ -38,9 +39,24 @@ const RecipeContent = ({
           <IconInf source={require("../../data/img/clock_green.png")} />
           <Text>{cookTime} минут</Text>
         </TimeCook>
+        <VideoBlock>
+          <IconVid source={require("../../data/img/video.png")} />
+          <Text>видео</Text>
+        </VideoBlock>
       </InfosBlock>
+
       <IngredientSection ingredients={ingredients} />
       <DescriptionSection description={description} />
+      <SimilarRecipes
+        recipeIngredients={ingredients}
+        title={title}
+        description={description}
+        cookTime={cookTime}
+        category={category}
+        catName={catName}
+        kcal={kcal}
+        likes={likes}
+      />
     </ContentSection>
   );
 };
@@ -50,7 +66,7 @@ const ContentSection = styled.View`
   border-top-right-radius: 35px;
   height: 100%;
   width: 100%;
-  margin-top: -50px;
+  margin-top: -30px;
 `;
 const TitleBlock = styled.View`
   flex-direction: row;
@@ -63,6 +79,7 @@ const InfosBlock = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  margin: 10px;
 `;
 const LikeBtn = styled.Image`
   width: 30px;
@@ -96,6 +113,15 @@ const Kcals = styled.View`
   padding: 10px;
   background-color: ${COLORS.exLightGreen};
   border-radius: 10px;
+`;
+const VideoBlock = styled.View`
+  padding: 10px;
+  background-color: ${COLORS.lightRed};
+  border-radius: 10px;
+`;
+const IconVid = styled.Image`
+  width: 30px;
+  height: 30px;
 `;
 
 export default RecipeContent;

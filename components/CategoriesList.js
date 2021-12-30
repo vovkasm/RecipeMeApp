@@ -35,7 +35,8 @@ const CategoriesList = () => {
 const WrapperCat = styled.View`
   flex-direction: row;
   justify-content: center;
-  height: 100px;
+  align-items: center;
+  height: 90px;
   background-color: ${COLORS.exLightGreen};
 `;
 

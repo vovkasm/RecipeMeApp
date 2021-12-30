@@ -19,7 +19,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style='auto' />
-
       <Stack.Navigator initialRouteName='HomeScreen'>
         <Stack.Screen
           options={{
@@ -41,6 +40,7 @@ export default function App() {
             headerTintColor: `${COLORS.green}`,
           }}
         />
+
         <Stack.Screen
           name='RecipeScreen'
           component={RecipeScreen}

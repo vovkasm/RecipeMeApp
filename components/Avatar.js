@@ -32,7 +32,6 @@ const AvatarImg = styled.Image`
   height: 50px;
   border-radius: 50px;
   border-width: 2px;
-  border-style: solid;
   border-color: ${COLORS.green}; ;
 `;
 

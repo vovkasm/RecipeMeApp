@@ -7,21 +7,23 @@ const IngredientSection = ({ ingredients }) => {
   return (
     <IngredientBlock>
       <IngTitle>Ингридиенты</IngTitle>
-      {ingredients.map((ingr, id) => {
-        return <IngItem key={id}>{ingr}</IngItem>;
+      {ingredients.map((ingr) => {
+        return <IngItem key={ingr.toString()}>{ingr}</IngItem>;
       })}
     </IngredientBlock>
   );
 };
 
 const IngredientBlock = styled.View`
+  align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
 `;
 const IngTitle = styled.Text`
   font-size: 20px;
   margin: 10px 42px;
   color: ${COLORS.text};
+  border-color: ${COLORS.green};
+  border-bottom-width: 1px;
 `;
 
 const IngItem = styled.Text`
@@ -29,5 +31,4 @@ const IngItem = styled.Text`
   margin: 6px 42px;
   color: ${COLORS.text};
 `;
-
 export default IngredientSection;
