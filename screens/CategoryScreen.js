@@ -1,7 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import styled from "styled-components";
 
 import ListItem from "../components/ListItem";
 import EmptyCategory from "../components/EmptyCategory";

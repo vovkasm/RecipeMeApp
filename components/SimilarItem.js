@@ -1,7 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableHighlight } from "react-native";
-import styled from "styled-components";
 
 import COLORS from "../colors";
 

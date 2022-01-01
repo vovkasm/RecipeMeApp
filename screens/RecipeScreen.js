@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ScrollView } from "react-native";
+
 import RecipeTop from "../components/RecipePage/RecipeTop";
 import RecipeContent from "../components/RecipePage/RecipeContent";
 
@@ -45,5 +46,6 @@ const RecipeScreen = ({ route }) => {
 };
 
 const WrapperResScr = styled.View``;
+
 
 export default RecipeScreen;

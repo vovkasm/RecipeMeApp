@@ -1,7 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import { FlatList } from "react-native";
 import SimilarItem from "./SimilarItem";
-import styled from "styled-components";
 
 import DATA from "../data/recipes";
 import COLORS from "../colors";

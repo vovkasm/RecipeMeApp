@@ -1,7 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import { Text } from "react-native";
-import styled from "styled-components";
 
 const CategoryItem = ({
   id,

@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
 import styled from "styled-components";
 
 import SearchField from "./../components/SearchField";
 import CategoriesList from "./../components/CategoriesList";
 import ContentBlock from "./../components/ContentBlock";
+
 import COLORS from "./../colors";
 
 const HomeScreen = () => {

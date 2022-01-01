@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import COLORS from "../colors";
 
 import MasonryList from "./MasonryList";
+
+import COLORS from "../colors";
+
 
 const ContentBlock = () => {
   return (

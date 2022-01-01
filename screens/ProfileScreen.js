@@ -1,8 +1,8 @@
 import React from "react";
+import styled from "styled-components";
 import SettingItem from "../components/SettingItem";
 import { useNavigation } from "@react-navigation/native";
 
-import styled from "styled-components";
 import CONFIG from "../data/config.js";
 import COLORS from "../colors.js";
 

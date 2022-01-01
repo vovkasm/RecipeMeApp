@@ -5,7 +5,9 @@ import styled from "styled-components";
 import IngredientSection from "./IngredientSection";
 import DescriptionSection from "./DescriptionSection";
 import SimilarRecipes from "../SimilarRecipes";
+
 import COLORS from "./../../colors";
+
 const RecipeContent = ({
   title,
   description,

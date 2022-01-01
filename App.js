@@ -8,6 +8,8 @@ import CategoryScreen from "./screens/CategoryScreen";
 import RecipeScreen from "./screens/RecipeScreen";
 import SearchScreen from "./screens/SearchScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import AuthorizationScreen from "./screens/AuthorizationScreen";
+
 import Avatar from "./components/Avatar";
 
 import COLORS from "./colors";
@@ -67,6 +69,10 @@ export default function App() {
             headerShadowVisible: false,
             headerTintColor: `${COLORS.green}`,
           }}
+        />
+        <Stack.Screen
+          name='AuthorizationScreen'
+          component={AuthorizationScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

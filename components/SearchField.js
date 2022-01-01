@@ -1,7 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
-import styled from "styled-components";
 
 import COLORS from "../colors";
 
@@ -16,6 +16,7 @@ const SearchField = () => {
   return (
     <WrapperSearchFld>
       <SearchInput
+        autoComplete={false}
         underlineColorAndroid='transparent'
         placeholder='Что приготовим?'
         value={searchPhrase}
