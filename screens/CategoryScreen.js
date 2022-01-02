@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FlatList } from "react-native";
+import { FlatList, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import ListItem from "../components/ListItem";
@@ -14,6 +14,8 @@ import COLORS from "./../colors";
 const CategoryScreen = ({ route }) => {
   const { catName } = route.params;
   const navigation = useNavigation();
+  const goTopRef = React.useRef(null);
+
   const filteredData = DATA.filter((item) => item.category === catName); // Filtering DATA
 
   React.useEffect(() => {
@@ -36,6 +38,26 @@ const CategoryScreen = ({ route }) => {
     );
   };
 
+  const renderFooter = () => {
+    //Show ToTop Button if ListItem > 4
+    return (
+      filteredData.length > 4 && (
+        <Pressable
+          onPress={() => {
+            goTopRef.current?.scrollToIndex({
+              index: 0,
+              animated: true,
+            });
+          }}
+        >
+          <TopView>
+            <GoTopText>В начало</GoTopText>
+          </TopView>
+        </Pressable>
+      )
+    );
+  };
+
   return (
     <WrapperCatScr>
       {filteredData.length == 0 && (
@@ -54,9 +76,11 @@ const CategoryScreen = ({ route }) => {
             <CountNum>{filteredData.length}</CountNum>
           </ItemsCountBlock>
           <FlatList
+            ref={goTopRef}
             numColumns='2'
             data={filteredData}
             renderItem={renderItem}
+            ListFooterComponent={renderFooter}
           />
         </>
       )}
@@ -86,6 +110,22 @@ const ItemsCount = styled.Text`
   margin: 5px 10px;
   font-size: 16px;
   color: ${COLORS.green};
+`;
+
+const TopView = styled.View`
+  align-items: center;
+  background-color: ${COLORS.green};
+  margin-top: 20px;
+`;
+
+const GoTopText = styled.Text`
+  font-size: 18px;
+  color: ${COLORS.white};
+  text-align: center;
+  padding: 5px;
+  border-color: ${COLORS.green};
+  border-width: 1px;
+  border-radius: 10px;
 `;
 
 export default CategoryScreen;

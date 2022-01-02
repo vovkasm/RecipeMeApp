@@ -7,7 +7,7 @@ import COLORS from "../colors";
 import DATA from "../data/recipes";
 
 const MasonryList = () => {
-  const goTop = React.useRef(null);
+  const goTopRef = React.useRef(null);
 
   const renderItem = ({ item }) => (
     <ListItem
@@ -27,7 +27,7 @@ const MasonryList = () => {
     return (
       <Pressable
         onPress={() => {
-          goTop.current?.scrollToIndex({
+          goTopRef.current?.scrollToIndex({
             index: 0,
             animated: true,
           });
@@ -43,7 +43,7 @@ const MasonryList = () => {
   return (
     <WrapperList>
       <FlatList
-        ref={goTop}
+        ref={goTopRef}
         maxToRenderPerBatch='8'
         windowSize='21'
         numColumns='2'

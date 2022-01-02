@@ -73,6 +73,11 @@ export default function App() {
         <Stack.Screen
           name='AuthorizationScreen'
           component={AuthorizationScreen}
+          options={{
+            headerTransparent: true,
+            headerShadowVisible: false,
+            headerTintColor: `${COLORS.white}`,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

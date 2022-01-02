@@ -262,7 +262,7 @@ const DATA = [
   {
     id: "a9",
     title: "Колбасный фарш",
-    category: "Закуски",
+    category: "Первые блюда",
     image:
       "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mothers-day-brunch-croque-madame-1587047696.jpg",
     description: [
@@ -297,7 +297,7 @@ const DATA = [
   {
     id: "a10",
     title: "Каридопита",
-    category: "Салаты",
+    category: "Первые блюда",
     image:
       "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mothers-day-brunch-croque-madame-1587047696.jpg",
     description: [
@@ -397,7 +397,7 @@ const DATA = [
   {
     id: "a13",
     title: "Кетчуп",
-    category: "Выпечка",
+    category: "Первые блюда",
     image:
       "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mothers-day-brunch-croque-madame-1587047696.jpg",
     description: [
@@ -429,6 +429,6 @@ const DATA = [
       "🍯 flour - 190 гр.",
     ],
   },
-  ];
+];
 
 export default DATA;
