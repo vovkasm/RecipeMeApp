@@ -21,7 +21,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style='auto' />
-      <Stack.Navigator initialRouteName='HomeScreen'>
+      <Stack.Navigator initialRouteName='AuthorizationScreen'>
         <Stack.Screen
           options={{
             headerTitle: (props) => (
@@ -40,6 +40,12 @@ export default function App() {
             headerTransparent: false,
             headerShadowVisible: false,
             headerTintColor: `${COLORS.green}`,
+            headerStyle: {
+              paddingStart: 48,
+              //marginLeft: 8,
+              //paddingLeft:8,
+              // paddingRight:8,
+            },
           }}
         />
 

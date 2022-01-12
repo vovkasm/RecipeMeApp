@@ -2,11 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { FlatList, Pressable } from "react-native";
 import ListItem from "./ListItem";
-
+// import axios from "axios";
 import COLORS from "../colors";
 import DATA from "../data/recipes";
 
 const MasonryList = () => {
+  // Getting data from MySql Database
+  // const [recipes, setRecipes] = React.useState([]);
+
+  // React.useEffect(() => {
+  //   axios("http://192.168.16.104:5000/api/recipes/")
+  //     .then((response) => {
+  //       console.log(response.data[0]);
+  //       setRecipes(response.data[0]);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
   const goTopRef = React.useRef(null);
 
   const renderItem = ({ item }) => (

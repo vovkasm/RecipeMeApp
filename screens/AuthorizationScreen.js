@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { Pressable } from "react-native";
 
 import COLORS from "../colors";
 import { useNavigation } from "@react-navigation/native";
 
 const AuthorizationScreen = () => {
+  const [login, setLogin] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [successAuth, setSuccessAuth] = React.useState(false);
+
   const navigation = useNavigation();
 
   React.useEffect(() => {
@@ -13,6 +18,16 @@ const AuthorizationScreen = () => {
     });
   }, []);
 
+  const checkCreds = () => {
+    if (login === "admin" && password === "123123") {
+      setSuccessAuth(true);
+      navigation.navigate("HomeScreen");
+    } else {
+      setSuccessAuth(false);
+      alert("🙊Неверный логин или пароль!");
+      return;
+    }
+  };
   return (
     <AuthWrap>
       <TopImage
@@ -26,10 +41,16 @@ const AuthorizationScreen = () => {
         <HelloDescription>Войдите в свой аккаунт</HelloDescription>
       </TitleSection>
       <FormBlock>
-        <LoginInput value='login@email.com' />
-        <PasswordInput secureTextEntry={true} value='qwerty12333333' />
+        <LoginInput onChangeText={setLogin} value={login} />
+        <PasswordInput
+          secureTextEntry={true}
+          onChangeText={setPassword}
+          value={password}
+        />
         <ForgotPass>Забыли свой пароль?</ForgotPass>
-        <SubmitButton>Войти</SubmitButton>
+        <Pressable>
+          <SubmitButton onPress={() => checkCreds()}>Войти</SubmitButton>
+        </Pressable>
       </FormBlock>
     </AuthWrap>
   );

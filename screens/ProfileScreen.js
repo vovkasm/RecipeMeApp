@@ -14,6 +14,7 @@ const ProfileScreen = ({ route }) => {
   React.useEffect(() => {
     navigation.setOptions({
       title: "Настройки профиля",
+      
     });
   }, []);
 
