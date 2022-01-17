@@ -5,6 +5,7 @@ import styled from "styled-components";
 import IngredientSection from "./IngredientSection";
 import DescriptionSection from "./DescriptionSection";
 import SimilarRecipes from "../SimilarRecipes";
+import LikeRecipe from "./LikeRecipe";
 
 import COLORS from "./../../colors";
 
@@ -22,8 +23,9 @@ const RecipeContent = ({
     <ContentSection>
       <TitleBlock>
         <HeaderTitle>Egg Toast with Grilled Cheese</HeaderTitle>
-        <LikeBtn source={require("../../data/img/like_red.png")} />
+        <LikeRecipe />
       </TitleBlock>
+
       <InfosBlock>
         {ingredients ? (
           <IngredientsCount>
@@ -83,10 +85,7 @@ const InfosBlock = styled.View`
   justify-content: space-evenly;
   margin: 10px;
 `;
-const LikeBtn = styled.Image`
-  width: 30px;
-  height: 30px;
-`;
+
 const IconInf = styled.Image`
   width: 30px;
   height: 30px;

@@ -19,7 +19,7 @@ const AuthorizationScreen = () => {
   }, []);
 
   const checkCreds = () => {
-    if (login === "admin" && password === "123123") {
+    if (login === "admin" && password === "1") {
       setSuccessAuth(true);
       navigation.navigate("HomeScreen");
     } else {
