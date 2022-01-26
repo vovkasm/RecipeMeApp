@@ -30,7 +30,7 @@ const RecipeContent = ({
         {ingredients ? (
           <IngredientsCount>
             <IconInf source={require("../../data/img/ingr_count.png")} />
-            <Text>{ingredients.length} продукт.</Text>
+            {/* <Text>{ingredients.length} продукт.</Text> */}
           </IngredientsCount>
         ) : (
           <></>
@@ -49,9 +49,9 @@ const RecipeContent = ({
         </VideoBlock>
       </InfosBlock>
 
-      <IngredientSection ingredients={ingredients} />
+      {/* <IngredientSection ingredients={ingredients} /> */}
       <DescriptionSection description={description} />
-      <SimilarRecipes
+      {/* <SimilarRecipes
         recipeIngredients={ingredients}
         title={title}
         description={description}
@@ -60,7 +60,7 @@ const RecipeContent = ({
         catName={catName}
         kcal={kcal}
         likes={likes}
-      />
+      /> */}
     </ContentSection>
   );
 };

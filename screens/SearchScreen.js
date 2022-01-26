@@ -8,7 +8,6 @@ import CategoriesList from "../components/CategoriesList";
 import ListItem from "../components/ListItem";
 import EmptySearch from "../components/EmptySearch";
 
-import DATA from "../data/recipes";
 import COLORS from "../colors";
 
 const SearchScreen = ({ route }) => {
@@ -63,7 +62,7 @@ const SearchScreen = ({ route }) => {
             Всего найдено <ResultNum>{searchedCount}</ResultNum> рецептов:
           </ResultText>
 
-          <FlatList numColumns='2' data={searchData} renderItem={renderItem} />
+          <FlatList numColumns="2" data={searchData} renderItem={renderItem} />
         </>
       )}
     </WrapperSearchScr>

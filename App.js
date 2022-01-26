@@ -20,8 +20,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar style='auto' />
-      <Stack.Navigator initialRouteName='HomeScreen'>
+      <StatusBar style="auto" />
+      <Stack.Navigator initialRouteName="HomeScreen">
         <Stack.Screen
           options={{
             headerTitle: (props) => (
@@ -30,11 +30,11 @@ export default function App() {
             headerRight: () => <Avatar data={SETTINGS} />,
             headerShadowVisible: false,
           }}
-          name='HomeScreen'
+          name="HomeScreen"
           component={HomeScreen}
         />
         <Stack.Screen
-          name='CategoryScreen'
+          name="CategoryScreen"
           component={CategoryScreen}
           options={{
             headerTransparent: false,
@@ -50,7 +50,7 @@ export default function App() {
         />
 
         <Stack.Screen
-          name='RecipeScreen'
+          name="RecipeScreen"
           component={RecipeScreen}
           options={{
             headerTransparent: true,
@@ -59,7 +59,7 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name='SearchScreen'
+          name="SearchScreen"
           component={SearchScreen}
           options={{
             headerTransparent: false,
@@ -68,18 +68,17 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name='ProfileScreen'
+          name="ProfileScreen"
           component={ProfileScreen}
           options={{
             headerTransparent: false,
             headerShadowVisible: false,
             headerTintColor: `${COLORS.green}`,
             animationEnabled: false,
-
           }}
         />
         <Stack.Screen
-          name='AuthorizationScreen'
+          name="AuthorizationScreen"
           component={AuthorizationScreen}
           options={{
             headerTransparent: true,

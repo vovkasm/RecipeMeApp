@@ -7,9 +7,7 @@ const IngredientSection = ({ ingredients }) => {
   return (
     <IngredientBlock>
       <IngTitle>Ингридиенты</IngTitle>
-      {ingredients.map((ingr) => {
-        return <IngItem key={ingr.toString()}>{ingr}</IngItem>;
-      })}
+      <IngItem>{ingredients}</IngItem>;
     </IngredientBlock>
   );
 };

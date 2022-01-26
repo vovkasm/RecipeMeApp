@@ -7,9 +7,7 @@ const DescriptionSection = ({ description }) => {
   return (
     <DescBlock>
       <DescTitle>Приготовление</DescTitle>
-      {description.map((desc) => {
-        return <DescText key={desc.id}>🟢 {desc.text}</DescText>;
-      })}
+      <DescText> {description}</DescText>;
     </DescBlock>
   );
 };

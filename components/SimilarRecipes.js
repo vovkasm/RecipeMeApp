@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FlatList } from "react-native";
 import SimilarItem from "./SimilarItem";
 
-import DATA from "../data/recipes";
 import COLORS from "../colors";
 
 const SimilarRecipes = ({
@@ -17,9 +16,20 @@ const SimilarRecipes = ({
   kcal,
   likes,
 }) => {
-  const newData = DATA.filter((el) =>
-    el.ingredients.join().includes(recipeIngredients.join())
-  );
+  const [DATA, setData] = React.useState();
+  React.useEffect(() => {
+    axios("http://192.168.16.103:5000/api/recipes")
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+        const newData = DATA.filter((el) =>
+          el.ingredients.includes(recipeIngredients.join())
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   const renderItem = ({ item }) => {
     return (
@@ -43,8 +53,8 @@ const SimilarRecipes = ({
     <WrapperSimRec>
       <SimTitle>Похожие рецепты</SimTitle>
       <FlatList
-        maxToRenderPerBatch='8'
-        windowSize='21'
+        maxToRenderPerBatch="8"
+        windowSize="21"
         horizontal={true}
         data={newData}
         renderItem={renderItem}

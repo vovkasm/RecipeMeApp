@@ -8,7 +8,7 @@ import EmptyCategory from "../components/EmptyCategory";
 import SearchField from "../components/SearchField";
 import CategoriesList from "../components/CategoriesList";
 
-import DATA from "../data/recipes";
+import { getData as DATA } from "../data/recipes";
 import COLORS from "./../colors";
 
 const CategoryScreen = ({ route }) => {
@@ -77,7 +77,7 @@ const CategoryScreen = ({ route }) => {
           </ItemsCountBlock>
           <FlatList
             ref={goTopRef}
-            numColumns='2'
+            numColumns="2"
             data={filteredData}
             renderItem={renderItem}
             ListFooterComponent={renderFooter}

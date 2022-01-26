@@ -1,28 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { FlatList, Pressable } from "react-native";
+import { observer } from "mobx-react-lite";
+import { FlatList, Pressable, Text } from "react-native";
 import ListItem from "./ListItem";
-// import axios from "axios";
 import COLORS from "../colors";
-import DATA from "../data/recipes";
+import RecipeContext from "../Context/RecipeContext";
 
 const MasonryList = () => {
-  // Getting data from MySql Database
-  // const [recipes, setRecipes] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   axios("http://192.168.16.104:5000/api/recipes/")
-  //     .then((response) => {
-  //       console.log(response.data[0]);
-  //       setRecipes(response.data[0]);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
   const goTopRef = React.useRef(null);
 
+  const store = useContext(RecipeContext);
+
+  React.useEffect(() => {
+    store.getRecipes();
+  }, [store.recipes]);
   const renderItem = ({ item }) => (
     <ListItem
       title={item.title}
@@ -58,10 +49,10 @@ const MasonryList = () => {
     <WrapperList>
       <FlatList
         ref={goTopRef}
-        maxToRenderPerBatch='8'
-        windowSize='21'
-        numColumns='2'
-        data={DATA}
+        numColumns={2}
+        maxToRenderPerBatch="8"
+        windowSize="21"
+        data={store.recipes.slice(0)}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ListFooterComponent={renderFooter}
@@ -90,4 +81,4 @@ const GoTopText = styled.Text`
   border-radius: 10px;
 `;
 
-export default MasonryList;
+export default observer(MasonryList);
