@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Text } from "react-native";
+import { observer } from "mobx-react-lite";
 import COLORS from "../../colors";
 
 const IngredientSection = ({ ingredients }) => {
   return (
     <IngredientBlock>
       <IngTitle>Ингридиенты</IngTitle>
-      <IngItem>{ingredients}</IngItem>;
+      <IngItem>{ingredients}</IngItem>
     </IngredientBlock>
   );
 };
@@ -29,4 +30,4 @@ const IngItem = styled.Text`
   margin: 6px 42px;
   color: ${COLORS.text};
 `;
-export default IngredientSection;
+export default observer(IngredientSection);

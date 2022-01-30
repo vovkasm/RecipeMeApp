@@ -1,69 +1,46 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Text } from "react-native";
 import styled from "styled-components";
-
+import { observer } from "mobx-react-lite";
 import IngredientSection from "./IngredientSection";
 import DescriptionSection from "./DescriptionSection";
 import SimilarRecipes from "../SimilarRecipes";
 import LikeRecipe from "./LikeRecipe";
-
 import COLORS from "./../../colors";
 
-const RecipeContent = ({
-  title,
-  description,
-  cookTime,
-  category,
-  catName,
-  kcal,
-  likes,
-  ingredients,
-}) => {
+const RecipeContent = ({ recipeData }) => {
+  const [recipe, setRecipe] = useState(recipeData);
+
   return (
-    <ContentSection>
-      <TitleBlock>
-        <HeaderTitle>Egg Toast with Grilled Cheese</HeaderTitle>
-        <LikeRecipe />
-      </TitleBlock>
+    <>
+      <ContentSection>
+        <TitleBlock>
+          <HeaderTitle>{recipe.title}</HeaderTitle>
+          <LikeRecipe />
+        </TitleBlock>
 
-      <InfosBlock>
-        {ingredients ? (
-          <IngredientsCount>
-            <IconInf source={require("../../data/img/ingr_count.png")} />
-            {/* <Text>{ingredients.length} продукт.</Text> */}
-          </IngredientsCount>
-        ) : (
-          <></>
-        )}
-        <Kcals>
-          <IconInf source={require("../../data/img/kcals.png")} />
-          <Text>{kcal} Ккал</Text>
-        </Kcals>
-        <TimeCook>
-          <IconInf source={require("../../data/img/clock_green.png")} />
-          <Text>{cookTime} минут</Text>
-        </TimeCook>
-        <VideoBlock>
-          <IconVid source={require("../../data/img/video.png")} />
-          <Text>видео</Text>
-        </VideoBlock>
-      </InfosBlock>
-
-      {/* <IngredientSection ingredients={ingredients} /> */}
-      <DescriptionSection description={description} />
-      {/* <SimilarRecipes
-        recipeIngredients={ingredients}
-        title={title}
-        description={description}
-        cookTime={cookTime}
-        category={category}
-        catName={catName}
-        kcal={kcal}
-        likes={likes}
-      /> */}
-    </ContentSection>
+        <InfosBlock>
+          <Kcals>
+            <IconInf source={require("../../data/img/kcals.png")} />
+            <Text>{recipe.kcal} Ккал</Text>
+          </Kcals>
+          <TimeCook>
+            <IconInf source={require("../../data/img/clock_green.png")} />
+            <Text>{recipe.cookTime} минут</Text>
+          </TimeCook>
+          <VideoBlock>
+            <IconVid source={require("../../data/img/video.png")} />
+            <Text>видео</Text>
+          </VideoBlock>
+        </InfosBlock>
+        <IngredientSection ingredients={recipe.ingredients} />
+        <DescriptionSection description={recipe.description} />
+      </ContentSection>
+    </>
   );
 };
+export default observer(RecipeContent);
+
 const ContentSection = styled.View`
   background-color: ${COLORS.white};
   border-top-left-radius: 35px;
@@ -124,5 +101,3 @@ const IconVid = styled.Image`
   width: 30px;
   height: 30px;
 `;
-
-export default RecipeContent;

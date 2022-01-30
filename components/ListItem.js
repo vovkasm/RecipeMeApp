@@ -1,62 +1,55 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import { Text, Pressable } from "react-native";
-
+import RecipeContext from "../Context/RecipeContext";
+import { observer } from "mobx-react-lite";
 import COLORS from "../colors";
 
-function ListItem({
-  title,
-  description,
-  cookTime,
-  image,
-  category,
-  catName,
-  likes,
-  kcal,
-  ingredients,
-}) {
+function ListItem({ id }) {
   const navigation = useNavigation();
+
+  const store = useContext(RecipeContext);
+
+  let recipeData = store.recipes.find((item) => item.id === id);
+  useEffect(() => {
+    setRecipe(recipeData);
+  }, []);
+  const [recipe, setRecipe] = useState(recipeData);
 
   return (
     <Wrapper>
       <CookTime>
         <TimeIco source={require("../data/img/clock3.png")} />
-        <Text style={{ color: "#42c190" }}>{cookTime} min</Text>
+        <Text style={{ color: "#42c190" }}>{recipe.cookTime} min</Text>
       </CookTime>
       <CategoryLabel>
-        <Text style={{ color: "white" }}>{category || catName}</Text>
+        <Text style={{ color: "white" }}>{recipe.category}</Text>
       </CategoryLabel>
       <LikeLabel>
         <LikeIco source={require("../data/img/like.png")} />
-        <Text style={{ color: "white" }}>{likes}</Text>
+        <Text style={{ color: "white" }}>{recipe.likes}</Text>
       </LikeLabel>
       <Pressable
         onPress={function () {
           navigation.navigate("RecipeScreen", {
-            title,
-            description,
-            cookTime,
-            image,
-            category,
-            catName,
-            likes,
-            kcal,
-            ingredients,
+            recipeData,
           });
         }}
       >
-        <BackImage source={{ uri: image }}></BackImage>
+        <BackImage source={{ uri: recipe.image }}></BackImage>
       </Pressable>
       {/* Cutting Long Titles */}
-      {title.length > 17 ? (
-        <Title>{title.slice(0, 17)}...</Title>
+      {recipe.title.length > 17 ? (
+        <Title>{recipe.title.slice(0, 17)}...</Title>
       ) : (
-        <Title>{title}</Title>
+        <Title>{recipe.title}</Title>
       )}
     </Wrapper>
   );
 }
+
+export default observer(ListItem);
 
 const Wrapper = styled.View`
   width: 45%;
@@ -128,5 +121,3 @@ const TimeIco = styled.Image`
   z-index: 1;
   margin: 0 3px;
 `;
-
-export default ListItem;

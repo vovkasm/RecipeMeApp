@@ -1,45 +1,32 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { observer } from "mobx-react-lite";
+
 import styled from "styled-components";
 import { ScrollView } from "react-native";
-
+import RecipeContext from "../Context/RecipeContext";
 import RecipeTop from "../components/RecipePage/RecipeTop";
 import RecipeContent from "../components/RecipePage/RecipeContent";
 
 const RecipeScreen = ({ route }) => {
+  const { recipeData } = route.params;
+  useEffect(() => {
+    setRecipe(recipeData);
+  }, []);
+  const [recipe, setRecipe] = useState(recipeData);
+
   const scrollRef = React.useRef(null);
 
-  const {
-    title,
-    description,
-    cookTime,
-    image,
-    category,
-    catName,
-    kcal,
-    likes,
-    ingredients,
-  } = route.params;
-
-  React.useEffect(() => {
+  useEffect(() => {
     scrollRef.current?.scrollTo({
       y: 0,
       animated: true,
     });
-  }, [title, description]);
+  }, [recipe.title, recipe.description]);
   return (
     <ScrollView ref={scrollRef}>
       <WrapperResScr>
-        <RecipeTop image={image} />
-        <RecipeContent
-          title={title}
-          description={description}
-          cookTime={cookTime}
-          category={category}
-          catName={catName}
-          kcal={kcal}
-          likes={likes}
-          ingredients={ingredients}
-        />
+        <RecipeTop image={recipe.image} />
+        <RecipeContent recipeData={recipeData} />
       </WrapperResScr>
     </ScrollView>
   );
@@ -47,5 +34,4 @@ const RecipeScreen = ({ route }) => {
 
 const WrapperResScr = styled.View``;
 
-
-export default RecipeScreen;
+export default observer(RecipeScreen);

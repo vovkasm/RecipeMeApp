@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
 import { FlatList, Pressable, Text } from "react-native";
@@ -11,22 +11,11 @@ const MasonryList = () => {
 
   const store = useContext(RecipeContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     store.getRecipes();
-  }, [store.recipes]);
-  const renderItem = ({ item }) => (
-    <ListItem
-      title={item.title}
-      description={item.description}
-      id={item.id}
-      cookTime={item.cookTime}
-      image={item.image}
-      category={item.category}
-      likes={item.likes}
-      kcal={item.kcal}
-      ingredients={item.ingredients}
-    />
-  );
+  }, []);
+
+  const renderItem = ({ item }) => <ListItem id={item.id} />;
 
   const renderFooter = () => {
     return (

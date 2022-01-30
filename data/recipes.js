@@ -11,13 +11,15 @@ class Data {
       getRecipes: action,
     });
   }
+
   getRecipes = () => {
     runInAction(() => {
       this.recipes = [
         {
-          id: "122",
-          title: "Яишница",
-          description: "Описание рецепта",
+          id: "123333",
+          title: "Рецептfdfd",
+          description:
+            "Готовить этот суп быстро и просто, что делает его моим фаворитом из всех супов-пюре. Вот, казалось бы, обычный суп-пюре, но стоит добавить в него фрикадельки и получаем совсем новый вкус. Его вкусовые качества оценили, как говорится - и стар, и млад. Все были в восторге. Обязательно попробуйте и вы этот оранжевый солнечный суп.",
           category: "Первые блюда",
           image:
             "https://img.povar.ru/main/f2/45/9f/54/yaichnica_obichnaya-384161.jpg",
@@ -28,7 +30,7 @@ class Data {
         },
         {
           id: "545",
-          title: "Картошка Жареная",
+          title: "Картошка Жаренаяddddd",
           description: "Описание блюда",
           category: "Вторые блюда",
           image:
@@ -51,8 +53,20 @@ class Data {
           ingredients: "картошка, соль, перец, масло",
         },
         {
-          id: "556833",
+          id: "5565553",
           title: "Картошка Жареная2",
+          description: "Описание блюда",
+          category: "Вторые блюда",
+          image:
+            "https://www.recept.ua/files/uploads/rec_img/zharenaya-kartoshka.jpg",
+          likes: 45,
+          cookTime: 23,
+          kcal: 400,
+          ingredients: "картошка, соль, перец, масло",
+        },
+        {
+          id: "556833",
+          title: "Картошка",
           description: "Описание блюда",
           category: "Вторые блюда",
           image:
@@ -64,6 +78,7 @@ class Data {
         },
       ];
     });
+
     // axios("http://192.168.16.103:5000/api/recipes")
     //   .then((response) => {
     //     runInAction(() => {

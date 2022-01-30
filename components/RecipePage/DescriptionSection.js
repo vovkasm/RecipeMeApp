@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { observer } from "mobx-react-lite";
 
 import COLORS from "../../colors";
 
-const DescriptionSection = ({ description }) => {
+const DescriptionSection = (props) => {
   return (
     <DescBlock>
       <DescTitle>Приготовление</DescTitle>
-      <DescText> {description}</DescText>;
+      <DescText>{props.description}</DescText>
     </DescBlock>
   );
 };
@@ -30,4 +31,4 @@ const DescText = styled.Text`
   color: ${COLORS.text};
 `;
 
-export default DescriptionSection;
+export default observer(DescriptionSection);
