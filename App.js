@@ -14,7 +14,7 @@ import Avatar from "./components/Avatar";
 
 import COLORS from "./colors";
 import SETTINGS from "./data/settings";
-import { newData } from "./data/recipes";
+import { recipes } from "./data/recipes";
 import RecipeContext from "./Context/RecipeContext";
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <RecipeContext.Provider value={newData}>
+      <RecipeContext.Provider value={recipes}>
         <StatusBar style="auto" />
         <Stack.Navigator initialRouteName="HomeScreen">
           <Stack.Screen

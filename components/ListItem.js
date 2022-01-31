@@ -2,20 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import { Text, Pressable } from "react-native";
-import RecipeContext from "../Context/RecipeContext";
 import { observer } from "mobx-react-lite";
 import COLORS from "../colors";
 
-function ListItem({ id }) {
+const ListItem = observer(({ recipe }) => {
   const navigation = useNavigation();
-
-  const store = useContext(RecipeContext);
-
-  let recipeData = store.recipes.find((item) => item.id === id);
-  useEffect(() => {
-    setRecipe(recipeData);
-  }, []);
-  const [recipe, setRecipe] = useState(recipeData);
 
   return (
     <Wrapper>
@@ -33,7 +24,7 @@ function ListItem({ id }) {
       <Pressable
         onPress={function () {
           navigation.navigate("RecipeScreen", {
-            recipeData,
+            recipe,
           });
         }}
       >
@@ -47,9 +38,9 @@ function ListItem({ id }) {
       )}
     </Wrapper>
   );
-}
+});
 
-export default observer(ListItem);
+export default ListItem;
 
 const Wrapper = styled.View`
   width: 45%;

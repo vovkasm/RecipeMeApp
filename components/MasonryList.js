@@ -1,21 +1,21 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
-import { FlatList, Pressable, Text } from "react-native";
+import { FlatList, Pressable } from "react-native";
 import ListItem from "./ListItem";
 import COLORS from "../colors";
 import RecipeContext from "../Context/RecipeContext";
 
-const MasonryList = () => {
+const MasonryList = observer(() => {
   const goTopRef = React.useRef(null);
 
-  const store = useContext(RecipeContext);
+  const recipes = useContext(RecipeContext);
 
   useEffect(() => {
-    store.getRecipes();
+    recipes.getRecipes();
   }, []);
 
-  const renderItem = ({ item }) => <ListItem id={item.id} />;
+  const renderItem = ({ item }) => <ListItem recipe={item} />;
 
   const renderFooter = () => {
     return (
@@ -41,14 +41,14 @@ const MasonryList = () => {
         numColumns={2}
         maxToRenderPerBatch="8"
         windowSize="21"
-        data={store.recipes.slice(0)}
+        data={recipes.recipes.slice(0)}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ListFooterComponent={renderFooter}
       />
     </WrapperList>
   );
-};
+});
 
 const WrapperList = styled.View`
   padding-bottom: 190px;
@@ -70,4 +70,4 @@ const GoTopText = styled.Text`
   border-radius: 10px;
 `;
 
-export default observer(MasonryList);
+export default MasonryList;

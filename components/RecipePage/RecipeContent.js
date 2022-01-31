@@ -8,9 +8,7 @@ import SimilarRecipes from "../SimilarRecipes";
 import LikeRecipe from "./LikeRecipe";
 import COLORS from "./../../colors";
 
-const RecipeContent = ({ recipeData }) => {
-  const [recipe, setRecipe] = useState(recipeData);
-
+const RecipeContent = ({ recipe }) => {
   return (
     <>
       <ContentSection>
