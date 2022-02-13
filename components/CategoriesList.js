@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { FlatList } from "react-native";
 import styled from "styled-components";
-
+import CategoryContext from "../Context/CategoryContext";
+import { observer } from "mobx-react-lite";
 import CategoryItem from "./CategoryItem";
 
-import CATEGORIES from "../data/categories";
 import COLORS from "../colors";
 
-const CategoriesList = () => {
+const CategoriesList = observer(() => {
+  const category = useContext(CategoryContext);
+  useEffect(() => {
+    category.getCategories();
+  }, [category]);
   const renderCategory = ({ item }) => (
     <CategoryItem
       id={item.id}
@@ -23,7 +27,7 @@ const CategoriesList = () => {
   return (
     <WrapperCat>
       <FlatList
-        data={CATEGORIES}
+        data={category.category}
         renderItem={renderCategory}
         keyExtractor={(item) => item.id}
         horizontal={true}
@@ -31,7 +35,7 @@ const CategoriesList = () => {
       />
     </WrapperCat>
   );
-};
+});
 
 const WrapperCat = styled.View`
   flex-direction: row;

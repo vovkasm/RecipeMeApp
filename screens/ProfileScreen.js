@@ -1,36 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { observer } from "mobx-react-lite";
 import styled from "styled-components";
 import SettingItem from "../components/SettingItem";
 import { useNavigation } from "@react-navigation/native";
 
-import CONFIG from "../data/config.js";
+import UserContext from "../Context/UserContext";
+
 import COLORS from "../colors.js";
 
-const ProfileScreen = ({ route }) => {
-  const { id, login, userEmail, photo, allergy, signupDate } = route.params;
-
+const ProfileScreen = observer(() => {
+  const user = useContext(UserContext);
   const navigation = useNavigation();
 
   React.useEffect(() => {
     navigation.setOptions({
       title: "Настройки профиля",
-      
     });
+  }, []);
+  React.useEffect(() => {
+    user.getUserData();
   }, []);
 
   return (
     <WrapperUser>
       <HeadSection>
-        <Photo source={photo} />
-        <UserName>{login}</UserName>
-        <UserEmail>{userEmail}</UserEmail>
+        <Photo source={user.user[0].photo} />
+        <UserName>Имя: {user.user[0].login}</UserName>
+        <UserEmail>Почта: {user.user[0].userEmail}</UserEmail>
         <EditBtn>Редактировать</EditBtn>
       </HeadSection>
       <ContentSectionUser>
         <ContHead>
           <ContTitle>Настройки</ContTitle>
         </ContHead>
-        {CONFIG.map((item) => {
+        {/* {userData.map((item) => {
           return (
             <SettingItem
               key={item.id}
@@ -39,11 +42,11 @@ const ProfileScreen = ({ route }) => {
               active={item.active}
             />
           );
-        })}
+        })} */}
       </ContentSectionUser>
     </WrapperUser>
   );
-};
+});
 
 const WrapperUser = styled.View`
   justify-content: center;

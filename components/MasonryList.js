@@ -13,7 +13,7 @@ const MasonryList = observer(() => {
 
   useEffect(() => {
     recipes.getRecipes();
-  }, []);
+  }, [recipes]);
 
   const renderItem = ({ item }) => <ListItem recipe={item} />;
 

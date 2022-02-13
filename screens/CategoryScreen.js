@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { FlatList, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import RecipeContext from "../Context/RecipeContext";
 import ListItem from "../components/ListItem";
 import EmptyCategory from "../components/EmptyCategory";
 import SearchField from "../components/SearchField";
 import CategoriesList from "../components/CategoriesList";
-
-import { getData as DATA } from "../data/recipes";
+import { observer } from "mobx-react-lite";
 import COLORS from "./../colors";
 
-const CategoryScreen = ({ route }) => {
+const CategoryScreen = observer(({ route }) => {
+  const recipes = useContext(RecipeContext);
   const { catName } = route.params;
   const navigation = useNavigation();
   const goTopRef = React.useRef(null);
 
-  const filteredData = DATA.filter((item) => item.category === catName); // Filtering DATA
+  const filteredData = recipes.recipes.filter(
+    (item) => item.category === catName
+  ); // Filtering DATA
 
   React.useEffect(() => {
     navigation.setOptions({
@@ -86,7 +88,7 @@ const CategoryScreen = ({ route }) => {
       )}
     </WrapperCatScr>
   );
-};
+});
 
 const WrapperCatScr = styled.View`
   height: 100%;

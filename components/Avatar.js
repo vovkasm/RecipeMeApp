@@ -1,31 +1,25 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-
+import { observer } from "mobx-react-lite";
 import { Pressable } from "react-native";
-
 import styled from "styled-components";
 import COLORS from "../colors";
 
-const Avatar = ({ data }) => {
+const Avatar = observer(({ image }) => {
   const navigation = useNavigation();
-
+  {
+    console.log(image);
+  }
   return (
     <Pressable
       onPress={function () {
-        navigation.navigate("ProfileScreen", {
-          id: data.id,
-          login: data.login,
-          userEmail: data.userEmail,
-          photo: data.photo,
-          allergy: data.allergy,
-          signupDate: data.signupDate,
-        });
+        navigation.navigate("ProfileScreen");
       }}
     >
-      <AvatarImg source={data.photo} />
+      <AvatarImg source={image} />
     </Pressable>
   );
-};
+});
 
 const AvatarImg = styled.Image`
   width: 50px;

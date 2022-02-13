@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import COLORS from "./../colors";
+import UserContext from "../Context/UserContext";
+const SettingItem = () => {
+  const user = useContext(UserContext);
 
-const SettingItem = ({ id, icon, title, active }) => {
   return (
     active && (
-      <TouchableHighlightBlock onPress={() => {}} underlayColor='#f1faee'>
+      <TouchableHighlightBlock onPress={() => {}} underlayColor="#f1faee">
         <SettingItemBlock>
-          <Ico source={icon} />
-          <ItemTitle>{title}</ItemTitle>
+          <Ico source={user.icon} />
+          <ItemTitle>{user.title}</ItemTitle>
           <Arrow source={require("../data/img/arrow.png")} />
         </SettingItemBlock>
       </TouchableHighlightBlock>
