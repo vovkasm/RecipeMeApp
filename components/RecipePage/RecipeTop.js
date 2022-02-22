@@ -4,7 +4,11 @@ import styled from "styled-components";
 const RecipeTop = ({ image }) => {
   return (
     <TopSection>
-      <MainImg source={{ uri: image }} />
+      {image ? (
+        <MainImg source={{ uri: image }}></MainImg>
+      ) : (
+        <MainImg source={require("../../data/img/noimg.jpg")}></MainImg>
+      )}
     </TopSection>
   );
 };

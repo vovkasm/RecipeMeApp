@@ -24,7 +24,7 @@ const Navigation = observer(({ user }) => {
             headerTitle: (props) => (
               <Image source={require("../data/img/logo.png")} />
             ),
-            headerRight: (prop) => <Avatar image={user.user.photo} />,
+            headerRight: (props) => <Avatar image={user?.user?.photo} />,
             headerShadowVisible: false,
           }}
           name="HomeScreen"

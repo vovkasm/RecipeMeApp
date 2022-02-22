@@ -11,18 +11,9 @@ const CategoriesList = observer(() => {
   const category = useContext(CategoryContext);
   useEffect(() => {
     category.getCategories();
-  }, [category]);
-  const renderCategory = ({ item }) => (
-    <CategoryItem
-      id={item.id}
-      title={item.title}
-      bgColor={item.bgColor}
-      active={item.active}
-      icon={item.icon}
-      catName={item.catName}
-      ingredients={item.ingredients}
-    />
-  );
+    console.log("----" + category.category[0]);
+  }, []);
+  const renderCategory = ({ item }) => <CategoryItem category={item} />;
 
   return (
     <WrapperCat>

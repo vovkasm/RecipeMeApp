@@ -12,7 +12,7 @@ import COLORS from "./../colors";
 
 const CategoryScreen = observer(({ route }) => {
   const recipes = useContext(RecipeContext);
-  const { catName } = route.params;
+  const { catName, category } = route.params;
   const navigation = useNavigation();
   const goTopRef = React.useRef(null);
 
@@ -27,17 +27,9 @@ const CategoryScreen = observer(({ route }) => {
   }, [navigation, catName]);
 
   const renderItem = ({ item }) => {
-    return (
-      <ListItem
-        title={item.title}
-        description={item.description}
-        id={item.id}
-        cookTime={item.cookTime}
-        image={item.image}
-        catName={catName}
-        ingredients={item.ingredients}
-      />
-    );
+    console.log(item);
+
+    return <ListItem recipe={item} />;
   };
 
   const renderFooter = () => {

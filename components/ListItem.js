@@ -12,14 +12,17 @@ const ListItem = observer(({ recipe }) => {
     <Wrapper>
       <CookTime>
         <TimeIco source={require("../data/img/clock3.png")} />
-        <Text style={{ color: "#42c190" }}>{recipe.cookTime} min</Text>
+        <Text style={{ color: "#42c190" }}>{recipe?.cookTime} min</Text>
       </CookTime>
-      <CategoryLabel>
-        <Text style={{ color: "white" }}>{recipe.category}</Text>
-      </CategoryLabel>
+
+      {recipe.category !== "" && ( //If category name if empty - hide category label
+        <CategoryLabel>
+          <Text style={{ color: "white" }}>{recipe?.category}</Text>
+        </CategoryLabel>
+      )}
       <LikeLabel>
         <LikeIco source={require("../data/img/like.png")} />
-        <Text style={{ color: "white" }}>{recipe.likes}</Text>
+        <Text style={{ color: "white" }}>{recipe?.likes}</Text>
       </LikeLabel>
       <Pressable
         onPress={function () {
@@ -28,13 +31,17 @@ const ListItem = observer(({ recipe }) => {
           });
         }}
       >
-        <BackImage source={{ uri: recipe.image }}></BackImage>
+        {recipe?.image ? (
+          <BackImage source={{ uri: recipe?.image }}></BackImage>
+        ) : (
+          <BackImage source={require("../data/img/noimg.jpg")}></BackImage>
+        )}
       </Pressable>
       {/* Cutting Long Titles */}
-      {recipe.title.length > 17 ? (
-        <Title>{recipe.title.slice(0, 17)}...</Title>
+      {recipe?.title.length > 17 ? (
+        <Title>{recipe?.title.slice(0, 17)}...</Title>
       ) : (
-        <Title>{recipe.title}</Title>
+        <Title>{recipe?.title}</Title>
       )}
     </Wrapper>
   );

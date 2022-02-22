@@ -24,9 +24,13 @@ const ProfileScreen = observer(() => {
   return (
     <WrapperUser>
       <HeadSection>
-        <Photo source={user.user[0].photo} />
-        <UserName>Имя: {user.user[0].login}</UserName>
-        <UserEmail>Почта: {user.user[0].userEmail}</UserEmail>
+        {user.user.photo ? (
+          <Photo source={user.user.photo} />
+        ) : (
+          <Photo source={require("../data/img/noava.png")} />
+        )}
+        <UserName>Имя: {user.user.login}</UserName>
+        <UserEmail>Почта: {user.user.userEmail}</UserEmail>
         <EditBtn>Редактировать</EditBtn>
       </HeadSection>
       <ContentSectionUser>

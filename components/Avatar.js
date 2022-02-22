@@ -7,16 +7,18 @@ import COLORS from "../colors";
 
 const Avatar = observer(({ image }) => {
   const navigation = useNavigation();
-  {
-    console.log(image);
-  }
+
   return (
     <Pressable
       onPress={function () {
         navigation.navigate("ProfileScreen");
       }}
     >
-      <AvatarImg source={image} />
+      {image ? (
+        <AvatarImg source={image} />
+      ) : (
+        <AvatarImg source={require("../data/img/noava.png")} />
+      )}
     </Pressable>
   );
 });

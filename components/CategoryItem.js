@@ -3,28 +3,23 @@ import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import { Text } from "react-native";
 
-const CategoryItem = ({
-  id,
-  title,
-  description,
-  bgColor,
-  active,
-  icon,
-  ingredients,
-}) => {
+const CategoryItem = ({ category }) => {
   const navigation = useNavigation();
 
   return (
-    active && (
+    category?.active && (
       <TouchableHighlightBlock
-        underlayColor='#e4f3ee'
+        underlayColor="#e4f3ee"
         onPress={function () {
-          navigation.navigate("CategoryScreen", { catName: title });
+          navigation.navigate("CategoryScreen", {
+            catName: category?.title,
+            category,
+          });
         }}
       >
-        <WrapperCatItem style={{ backgroundColor: bgColor }}>
-          <IconCat source={icon} />
-          <Text style={{ color: "white" }}>{title}</Text>
+        <WrapperCatItem style={{ backgroundColor: category.bgColor }}>
+          <IconCat source={category?.icon} />
+          <Text style={{ color: "white" }}>{category?.title}</Text>
         </WrapperCatItem>
       </TouchableHighlightBlock>
     )
