@@ -16,7 +16,6 @@ class Recipes {
         if (snapshot.exists) {
           this.recipes = snapshot.data();
         }
-        console.log(recipes);
       });
     });
   }

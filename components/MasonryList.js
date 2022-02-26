@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { observer } from "mobx-react-lite";
+import { toJS } from "mobx";
 import { FlatList, Pressable } from "react-native";
 import ListItem from "./ListItem";
 import COLORS from "../colors";
@@ -13,6 +14,7 @@ const MasonryList = observer(() => {
 
   useEffect(() => {
     recipes.getRecipes();
+    console.log(recipes.recipes);
   }, [recipes]);
 
   const renderItem = ({ item }) => <ListItem recipe={item} />;
@@ -41,7 +43,7 @@ const MasonryList = observer(() => {
         numColumns={2}
         maxToRenderPerBatch="8"
         windowSize="21"
-        data={recipes}
+        data={toJS(recipes.resipes)}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ListFooterComponent={renderFooter}
