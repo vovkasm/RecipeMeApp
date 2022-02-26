@@ -41,7 +41,7 @@ const MasonryList = observer(() => {
         numColumns={2}
         maxToRenderPerBatch="8"
         windowSize="21"
-        data={recipes.recipes.slice(0)}
+        data={recipes}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ListFooterComponent={renderFooter}

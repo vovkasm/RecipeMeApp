@@ -14,10 +14,6 @@ import { useEffect } from "react";
 import Navigation from "./navigation";
 
 const App = observer(() => {
-  useEffect(() => {
-    user.getUserData();
-  }, []);
-
   return (
     <RecipeContext.Provider value={recipes}>
       <UserContext.Provider value={user}>
